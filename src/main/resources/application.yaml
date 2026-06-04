@@ -1,0 +1,14 @@
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db-elearning-a01-m1
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: fdsa
+  application:
+    name: elearning-a01-m1
+server:
+  port: 8081
