@@ -28,4 +28,8 @@ public class InstructorProfile {
 
     @OneToMany(mappedBy = "instructorProfile")
     private List<Course> courses;
+
+    public InstructorProfile(String id) {
+        this.userId = id;
+    }
 }

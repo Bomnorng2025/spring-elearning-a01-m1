@@ -1,5 +1,10 @@
 
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://127.0.0.1:8080/realms/a01-m1"
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -10,5 +15,6 @@ spring:
     password: fdsa
   application:
     name: elearning-a01-m1
+
 server:
   port: 8081

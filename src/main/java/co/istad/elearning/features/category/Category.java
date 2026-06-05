@@ -23,7 +23,7 @@ public class Category {
     private String icon;
 
     @Column(nullable = false)
-    private Boolean isDisable;
+    private Boolean isDeleted;
 
     @OneToMany(mappedBy = "category")
     private List<Course> courses;

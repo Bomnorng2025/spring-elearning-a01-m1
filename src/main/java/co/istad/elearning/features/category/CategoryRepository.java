@@ -1,4 +1,7 @@
 package co.istad.elearning.features.category;
 
-public interface CategoryRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryRepository extends JpaRepository<Category, Integer> {
+    boolean existsByName(String name);
 }
