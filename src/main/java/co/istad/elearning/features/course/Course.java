@@ -1,5 +1,6 @@
 package co.istad.elearning.features.course;
 
+import co.istad.elearning.config.auditing.BasedEntity;
 import co.istad.elearning.features.category.Category;
 import co.istad.elearning.features.enrollment.Enrollment;
 import co.istad.elearning.features.instructor.InstructorProfile;
@@ -18,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "courses")
-public class Course {
+public class Course extends BasedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -33,8 +34,6 @@ public class Course {
     private String level;
     private BigDecimal price;
     private Float discountPercent;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 
     @ManyToOne
     private Category category;

@@ -18,7 +18,6 @@ public record CourseResponse(
         BigDecimal price,
         Float discountPercent,
         LocalDateTime createdAt,
-        LocalDateTime updatedAt,
         CategoryResponse category,
         String instructorName,
         Boolean isPublished

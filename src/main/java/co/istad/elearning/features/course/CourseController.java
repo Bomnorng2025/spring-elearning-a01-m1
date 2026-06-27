@@ -4,10 +4,12 @@ import co.istad.elearning.features.course.dto.CourseResponse;
 import co.istad.elearning.features.course.dto.CreateCourseRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/api/v1/courses")
@@ -16,15 +18,22 @@ public class CourseController {
 
     private final CourseService courseService;
 
-    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public CourseResponse createCourse(
             @Valid @RequestBody CreateCourseRequest request,
             @AuthenticationPrincipal Jwt jwt
     ) {
-
 //        IO.print("JWT: " + jwt.getSubject());
 
         return courseService.createCourse(request, jwt);
+    }
+
+    @GetMapping
+    public Page<CourseResponse> getAllCourse(
+            @RequestParam(required = false, defaultValue = "0") int pageNumber,
+            @RequestParam(required = false, defaultValue = "25") int pageSize
+    ) {
+        return courseService.getAllCourse(pageNumber, pageSize);
     }
 }

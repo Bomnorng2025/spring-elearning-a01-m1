@@ -7,7 +7,7 @@ spring:
           issuer-uri: "http://127.0.0.1:8080/realms/a01-m1"
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
   datasource:
     url: jdbc:postgresql://localhost:5432/db-elearning-a01-m1
     driver-class-name: org.postgresql.Driver
